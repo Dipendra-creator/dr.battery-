@@ -2,6 +2,7 @@
 
 # imports
 import psutil
+from playsound import playsound  # pip install playsound
 
 
 # Function which can Check Battery Percentage
@@ -11,6 +12,8 @@ def checkBatteryPercentage():
     percent = str(battery.percent)
     plugged = "Plugged In" if plugged else "Not Plugged In"
     print(percent + '% | ' + plugged)
+    if battery.power_plugged:
+        playsound("D:/python/dr.battery-/Dr.Battery tunes/batery_full_capacity.mp3")
 
 
 # Running Function
