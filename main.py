@@ -12,7 +12,8 @@ def checkBatteryPercentage():
     percent = str(battery.percent)
     plugged = "Plugged In" if plugged else "Not Plugged In"
     print(percent + '% | ' + plugged)
-    if battery.power_plugged:
+    plug = battery.power_plugged
+    if plug == True:
         playsound("D:/python/dr.battery-/Dr.Battery tunes/batery_full_capacity.mp3")
 
 
