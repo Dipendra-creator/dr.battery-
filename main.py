@@ -11,9 +11,7 @@ def alert():
     battery = psutil.sensors_battery()
     if battery.power_plugged:
         if battery.percent >= 90:
-            while 1:
-                playsound('Dr.BatteryTunes/batery_full_capacity.mp3')
-                time.sleep(10)
+            playsound('Dr.BatteryTunes/batery_full_capacity.mp3')
         elif 60 < battery.percent < 80:
             playsound('Dr.BatteryTunes/battery_low.mp3')
     else:
