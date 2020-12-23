@@ -1,17 +1,19 @@
 # Project Started
 
 # imports
+import time
 import psutil
 from playsound import playsound  # pip install playsound
-
-battery = psutil.sensors_battery()
 
 
 # Audio System of Battery Alert
 def alert():
+    battery = psutil.sensors_battery()
     if battery.power_plugged:
         if battery.percent >= 90:
-            playsound('Dr.BatteryTunes/batery_full_capacity.mp3')
+            while 1:
+                playsound('Dr.BatteryTunes/batery_full_capacity.mp3')
+                time.sleep(10)
         elif 60 < battery.percent < 80:
             playsound('Dr.BatteryTunes/battery_low.mp3')
     else:
@@ -21,6 +23,7 @@ def alert():
 
 # Function which can Check Battery Percentage
 def checkBatteryPercentage():
+    battery = psutil.sensors_battery()
     plugged = battery.power_plugged
     percent = str(battery.percent)
     plugged = "Plugged In" if plugged else "Not Plugged In"
@@ -29,4 +32,7 @@ def checkBatteryPercentage():
 
 
 # Running Function
-checkBatteryPercentage()
+if __name__ == "__main__":
+    while 1:
+        checkBatteryPercentage()
+        time.sleep(300)
