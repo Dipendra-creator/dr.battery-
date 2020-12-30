@@ -25,12 +25,14 @@ def checkBatteryPercentage():
     plugged = battery.power_plugged
     percent = str(battery.percent)
     plugged = "Plugged In" if plugged else "Not Plugged In"
-    print(percent + '% | ' + plugged)
     alert()
+    return percent + '% | ' + plugged
 
 
 # Running Function
 if __name__ == "__main__":
+    count = 0
     while 1:
-        checkBatteryPercentage()
-        time.sleep(300)
+        count += 1
+        print(f"{count}: {checkBatteryPercentage()}")
+        time.sleep(60)
