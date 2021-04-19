@@ -34,5 +34,8 @@ if __name__ == "__main__":
     count = 0
     while 1:
         count += 1
-        print(f"{count}: {checkBatteryPercentage()}")
+        if count%5 == 0:
+            print(f"{count}: {checkBatteryPercentage()}")
+        else:
+            print(f"{count}: {checkBatteryPercentage()}",end="\r")
         time.sleep(60)
